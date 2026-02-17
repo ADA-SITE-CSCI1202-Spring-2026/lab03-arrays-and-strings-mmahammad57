@@ -37,11 +37,28 @@ public class StringUtil{
     String sorted1 = sort(s1);
     String sorted2 = sort(s2);
     return sorted1.equals(sorted2);
-}
+    }
+
+    public static String mixed(String sentence) {    
+        String[] words = sentence.split(" ");        
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {            
+            if (word.length() > 1) {
+                char first = word.charAt(0); 
+                char last = word.charAt(word.length() - 1); 
+                String middle = word.substring(1, word.length() - 1);
+                sb.append(last).append(middle).append(first);
+            } else {
+                sb.append(word);
+            }
+            sb.append(" ");
+        }
+        
+        return sb.toString().trim();
+    }
     public static void main(String[] args){
         String s1 = "baku";
-        String s2 = "kuba";
-        System.out.println(isAnagram(s1, s2));
+        System.out.println(mixed(s1));
 
     }
 
