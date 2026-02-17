@@ -24,15 +24,24 @@ public class StringUtil{
         return sb.toString();
     }
 
-    public static String sorting(String s){
+    public static String sort(String s){
         char[] l = s.toCharArray();
         Arrays.sort(l);
         return new String(l);
     }
 
+    public static boolean isAnagram(String s1, String s2) {
+    if (s1.length() != s2.length()) {
+        return false;
+    }
+    String sorted1 = sort(s1);
+    String sorted2 = sort(s2);
+    return sorted1.equals(sorted2);
+}
     public static void main(String[] args){
         String s1 = "baku";
-        System.out.println(sorting(s1));
+        String s2 = "kuba";
+        System.out.println(isAnagram(s1, s2));
 
     }
 
